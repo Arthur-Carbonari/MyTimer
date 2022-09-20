@@ -1,8 +1,9 @@
 
 public class ArgsParser {
 
-	public ArgsParser() {
-		// TODO Auto-generated constructor stub
+	public static boolean isArgsValid(String[] args) {
+		
+		return false;
 	}
 
 }
