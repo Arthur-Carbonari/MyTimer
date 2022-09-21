@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Timer;
+
 import org.junit.jupiter.api.Test;
 
 class MyTimerTest {
@@ -37,13 +39,19 @@ class MyTimerTest {
 	}
 
 	@Test
-	void testGetMyTimer() {
+	void testGetTimer() {
 		fail("Not yet implemented");
 	}
 
 	@Test
 	void testGetTimeInMilliseconds() {
-		fail("Not yet implemented");
+		long expectedTime = 7500000;
+		
+		MyTimer myTimer = new MyTimer(2, 5);
+		
+		long actualTime = myTimer.getTimeInMilliseconds();
+		
+		assertEquals(expectedTime, actualTime);
 	}
 
 }
