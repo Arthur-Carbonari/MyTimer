@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 class ArgsParserTest {
 	
-	static String[][] mockValidArgsArray = {{"1.1"}, {".1"}, {"2,3"}, {"03:12"}, {"11/11"}, {"10"}, {} };
-	static String[][] mockInvalidArgsArray = {{"1 1"}, {"123123123121"}, {"12>21"}, {"01;12"}, {"12-21"}, {"1*22"}};
+	static String[][] mockValidArgsArray = {{"1.1"}, {".1"}, {"2,3"}, {"03:12"}, {"10"}};
+	static String[][] mockInvalidArgsArray = {{"1 1"}, {"123123123121"}, {"12>21"}, {"01;12"}, {"12-21"}, {"1*22"}, {}, {"12", "23"} };
 	
 	@Test
 	void testIsArgsValid() {
