@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 
 class ArgsParserTest {
 	
-	static String[][] mockValidArgsArray = {{"1.1"}, {".1"}, {"2,3"}, {"03:12"}, {"10"}, {"5."} };
-	static int[][] parsedExpectedArgsArray = {  {1, 1} , {0 , 1}, {2 , 3} , {3 , 12}, {0 , 10} , {5 , 0}  };
-	static String[][] mockInvalidArgsArray = {{"1 1"}, {"123123123121"}, {"12>21"}, {"01;12"}, {"12-21"}, {"1*22"}, {}, {"12", "23"} };
+	static private String[][] mockValidArgsArray = {{"1.1"}, {".1"}, {"2,3"}, {"03:12"}, {"10"}, {"5."} };
+	static private int[][] parsedExpectedArgsArray = {  {1, 1} , {0 , 1}, {2 , 3} , {3 , 12}, {0 , 10} , {5 , 0}  };
+	static private String[][] mockInvalidArgsArray = {{"1 1"}, {"123123123121"}, {"12>21"}, {"01;12"}, {"12-21"}, {"1*22"}, {}, {"12", "23"} };
 	
 	@Test
 	void testIsArgsValid() {
