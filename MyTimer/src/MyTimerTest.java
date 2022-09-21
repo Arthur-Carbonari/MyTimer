@@ -40,7 +40,11 @@ class MyTimerTest {
 
 	@Test
 	void testGetTimer() {
-		fail("Not yet implemented");
+
+		MyTimer myTimer = new MyTimer(2, 5);
+		
+		assertEquals(Timer.class, myTimer.getTimer().getClass());
+
 	}
 
 	@Test
