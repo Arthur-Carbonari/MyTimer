@@ -46,6 +46,15 @@ class MyTimerTest {
 		assertEquals(Timer.class, myTimer.getTimer().getClass());
 
 	}
+	
+	@Test
+	void testGetTimer2() {
+		
+		MyTimer myTimer = new MyTimer(3, 6);
+		
+		assertSame(myTimer.getTimer(), myTimer.getTimer());
+		
+	}
 
 	@Test
 	void testGetTimeInMilliseconds() {
