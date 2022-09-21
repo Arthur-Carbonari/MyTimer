@@ -7,6 +7,9 @@ public class MyTimer {
 
 	public MyTimer(int hours, int minutes) {
 		
+		minutes += hours * 60;
+		
+		timeInMilliseconds = minutes * 60_000;
 	}
 	
 	public boolean startTimer() {
