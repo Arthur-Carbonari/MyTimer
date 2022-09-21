@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 class ArgsParserTest {
@@ -51,6 +53,23 @@ class ArgsParserTest {
 		int[] actualOutput = ArgsParser.parseArgsToIntArray(new String[] {"5.10"});
 		
 		assertArrayEquals(expectedOutput, actualOutput);
+	}
+	
+	@Test
+	void testParseArgsToIntArray2() {
+		
+		ArrayList<int[]> actualOutputList = new ArrayList<int[]>();
+		
+		for (String[] validArgs : mockValidArgsArray) {
+			actualOutputList.add(ArgsParser.parseArgsToIntArray(validArgs));
+		}
+		
+		int[][] actualOutputArray = new int[0][0];
+		
+		actualOutputArray = actualOutputList.toArray(actualOutputArray);
+		
+		
+		assertArrayEquals(parsedExpectedArgsArray, actualOutputArray);
 	}
 
 }
