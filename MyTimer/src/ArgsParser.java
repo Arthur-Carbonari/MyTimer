@@ -6,4 +6,8 @@ public class ArgsParser {
 		return false;
 	}
 
+	public static int[] parseArgsToIntArray(String[] args) {
+		
+		return new int[2];
+	}
 }
