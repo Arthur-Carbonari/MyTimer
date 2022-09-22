@@ -35,7 +35,10 @@ class MyTimerTest {
 
 	@Test
 	void testStartTimer() {
-		fail("Not yet implemented");
+		
+		MyTimer myTimer = new MyTimer(2, 5);
+		
+		assertFalse(myTimer.startTimer(null));	
 	}
 
 	@Test
