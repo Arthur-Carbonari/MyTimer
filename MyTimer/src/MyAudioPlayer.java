@@ -13,12 +13,12 @@ public class MyAudioPlayer{
 	
 	private AudioInputStream audioStream;
 	private Clip audioClip;
+	private boolean isPlaying;
 	
 	public boolean loadAudioFile(String pathname) {
 		
 		File audioFile = new File(pathname);
-		System.out.println(audioFile);
-		
+				
 		try {
 			audioStream = AudioSystem.getAudioInputStream(audioFile);
 			
@@ -33,6 +33,7 @@ public class MyAudioPlayer{
 		
 	}
 
+	
 	/**
 	 * @throws LineUnavailableException
 	 */
@@ -54,8 +55,9 @@ public class MyAudioPlayer{
 	}
 	
 	public boolean isPlaying() {
-		return false;
+		return isPlaying;
 	}
+
 	
 
 }
