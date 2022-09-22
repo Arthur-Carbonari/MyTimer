@@ -12,10 +12,14 @@ public class MyTimer {
 		
 		timeInMilliseconds = minutes * 60_000;
 	}
-	
 	public boolean startTimer(TimerTask timerTask) {
 		
-		return false;
+		try {
+			timer.schedule(timerTask, timeInMilliseconds);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	/**
