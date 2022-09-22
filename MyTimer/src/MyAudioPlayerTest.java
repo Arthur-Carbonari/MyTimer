@@ -73,5 +73,12 @@ class MyAudioPlayerTest {
 		assertFalse(testAudioPlayer.isPlaying());
 		
 	}
+	
+	@Test
+	void testCloseStreams() {
+		testAudioPlayer.loadAudioFile(validFilePath);
+		
+		assertTrue(testAudioPlayer.closeStreams());
+	}
 
 }
