@@ -1,12 +1,27 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class MyAudioPlayerTest {
+	
+	
+	MyAudioPlayer testAudioPlayer;
+	String validFilePath;
+	String invalidFilePath;
+	
+	@BeforeEach
+	void setup() {
+		testAudioPlayer = new MyAudioPlayer();
+	}
 
 	@Test
 	void testLoadAudioFile() {
-		fail("Not yet implemented");
+		
+		boolean isLoaded = testAudioPlayer.loadAudioFile(validFilePath);
+		
+		assertTrue(isLoaded);
+		
 	}
 
 	@Test
