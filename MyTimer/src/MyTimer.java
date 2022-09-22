@@ -1,4 +1,5 @@
 import java.util.Timer;
+import java.util.TimerTask;
 
 public class MyTimer {
 	
@@ -12,7 +13,7 @@ public class MyTimer {
 		timeInMilliseconds = minutes * 60_000;
 	}
 	
-	public boolean startTimer() {
+	public boolean startTimer(TimerTask timerTask) {
 		
 		return false;
 	}
@@ -20,7 +21,7 @@ public class MyTimer {
 	/**
 	 * @return the Timer object
 	 */
-	public Timer getMyTimer() {
+	public Timer getTimer() {
 		return timer;
 	}
 
