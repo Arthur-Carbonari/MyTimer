@@ -56,6 +56,8 @@ class MyAudioPlayerTest {
 	void testIsPlaying2() {
 		testAudioPlayer.loadAudioFile(validFilePath);
 		
+		assertFalse(testAudioPlayer.isPlaying());
+		
 	}
 
 }
