@@ -23,6 +23,14 @@ class MyAudioPlayerTest {
 		assertTrue(isLoaded);
 		
 	}
+	
+	@Test
+	void testLoadAudioFile2() {
+		
+		boolean isLoaded = testAudioPlayer.loadAudioFile(invalidFilePath);
+		
+		assertFalse(isLoaded);
+	}
 
 	@Test
 	void testPlayAudio() {
