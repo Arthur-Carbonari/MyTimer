@@ -6,6 +6,8 @@ import java.util.TimerTask;
 import org.junit.jupiter.api.Test;
 
 class MyTimerTest {
+	
+	static private boolean testWorked = false;
 
 	@Test
 	void testMyTimer() {
@@ -59,27 +61,23 @@ class MyTimerTest {
 	}
 	
 	@Test
-	void testStartTimer3() {
+	void testStartTimer3() throws InterruptedException {
 		
-		MyTimer myTimer = new MyTimer(1, 3);
+		MyTimer myTimer = new MyTimer(0, 0);
 		
 		TimerTask mockTast = new TimerTask() {
 			
 			@Override
 			public void run() {
-				assertTrue(true);
+				MyTimerTest.testWorked = true;
 			}
 		};
 		
+		assertFalse(testWorked);
 		myTimer.startTimer(mockTast);
-		myTimer.startTimer(mockTast);
+		Thread.sleep(100);
+		assertTrue(testWorked);
 		
-		int expected = 2;
-		
-		myTimer.getTimer().cancel();
-		int actual = myTimer.getTimer().purge();
-		
-		assertEquals(expected, actual);
 	}
 	
 
