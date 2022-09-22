@@ -46,7 +46,15 @@ public class MyAudioPlayer{
 	
 	public boolean playAudio() {
 		
-		return false;
+		try {
+			audioClip.open(audioStream);
+			audioClip.start();
+			isPlaying = true;
+			return true;
+		} catch (LineUnavailableException | IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	public boolean stopAudio() {
