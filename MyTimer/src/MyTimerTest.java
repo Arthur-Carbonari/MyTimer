@@ -1,6 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Timer;
+import java.util.TimerTask;
 
 import org.junit.jupiter.api.Test;
 
@@ -39,6 +40,22 @@ class MyTimerTest {
 		MyTimer myTimer = new MyTimer(2, 5);
 		
 		assertFalse(myTimer.startTimer(null));	
+	}
+	
+	@Test
+	void testStartTimer2() {
+		
+		MyTimer myTimer = new MyTimer(0, 0);
+		
+		TimerTask mockTast = new TimerTask() {
+			
+			@Override
+			public void run() {
+				assertTrue(true);
+			}
+		};
+		
+		assertTrue(myTimer.startTimer(mockTast));
 	}
 
 	@Test
