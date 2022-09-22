@@ -22,10 +22,7 @@ public class MyAudioPlayer{
 		try {
 			audioStream = AudioSystem.getAudioInputStream(audioFile);
 			
-			AudioFormat format = audioStream.getFormat();
-			DataLine.Info info = new DataLine.Info(Clip.class, format);
-			
-			audioClip = (Clip) AudioSystem.getLine(info);
+			audioClip = getAudioClip(audioStream);
 			
 			return true;
 			
@@ -34,6 +31,16 @@ public class MyAudioPlayer{
 			return false;
 		}
 		
+	}
+
+	/**
+	 * @throws LineUnavailableException
+	 */
+	private Clip getAudioClip(AudioInputStream audioStream) throws LineUnavailableException {
+		AudioFormat format = audioStream.getFormat();
+		DataLine.Info info = new DataLine.Info(Clip.class, format);
+		
+		return (Clip) AudioSystem.getLine(info);
 	}
 	
 	public boolean playAudio() {
