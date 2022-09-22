@@ -57,7 +57,18 @@ public class MyAudioPlayer{
 	public boolean isPlaying() {
 		return isPlaying;
 	}
-
+	
+	public boolean closeStreams() {
+		
+		try {
+			audioClip.close();
+			audioStream.close();
+			return true;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 	
 
 }
