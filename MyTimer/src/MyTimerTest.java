@@ -51,9 +51,9 @@ class MyTimerTest {
 			
 			@Override
 			public void run() {
-				assertTrue(true);
 			}
 		};
+		
 		
 		assertTrue(myTimer.startTimer(mockTast));
 	}
@@ -61,7 +61,7 @@ class MyTimerTest {
 	@Test
 	void testStartTimer3() {
 		
-		MyTimer myTimer = new MyTimer(0, 3);
+		MyTimer myTimer = new MyTimer(1, 3);
 		
 		TimerTask mockTast = new TimerTask() {
 			
@@ -75,6 +75,8 @@ class MyTimerTest {
 		myTimer.startTimer(mockTast);
 		
 		int expected = 2;
+		
+		myTimer.getTimer().cancel();
 		int actual = myTimer.getTimer().purge();
 		
 		assertEquals(expected, actual);
