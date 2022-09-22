@@ -57,6 +57,29 @@ class MyTimerTest {
 		
 		assertTrue(myTimer.startTimer(mockTast));
 	}
+	
+	@Test
+	void testStartTimer3() {
+		
+		MyTimer myTimer = new MyTimer(0, 3);
+		
+		TimerTask mockTast = new TimerTask() {
+			
+			@Override
+			public void run() {
+				assertTrue(true);
+			}
+		};
+		
+		myTimer.startTimer(mockTast);
+		myTimer.startTimer(mockTast);
+		
+		int expected = 2;
+		int actual = myTimer.getTimer().purge();
+		
+		assertEquals(expected, actual);
+	}
+	
 
 	@Test
 	void testGetTimer() {
