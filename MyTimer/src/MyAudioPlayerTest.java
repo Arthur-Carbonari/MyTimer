@@ -7,8 +7,8 @@ class MyAudioPlayerTest {
 	
 	
 	MyAudioPlayer testAudioPlayer;
-	String validFilePath;
-	String invalidFilePath;
+	String validFilePath = "./audioFiles/test.wav";
+	String invalidFilePath = "adadads";
 	
 	@BeforeEach
 	void setup() {
