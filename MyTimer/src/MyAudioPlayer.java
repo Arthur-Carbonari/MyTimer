@@ -15,6 +15,11 @@ public class MyAudioPlayer{
 	private Clip audioClip;
 	private boolean isPlaying;
 	
+	public MyAudioPlayer() {};
+	public MyAudioPlayer(String pathname) {
+		loadAudioFile(pathname);
+	}
+	
 	public boolean loadAudioFile(String pathname) {
 		
 		File audioFile = new File(pathname);
@@ -48,7 +53,7 @@ public class MyAudioPlayer{
 		
 		try {
 			audioClip.open(audioStream);
-			audioClip.start();
+			audioClip.loop(10);
 			isPlaying = true;
 			return true;
 		} catch (LineUnavailableException | IOException e) {
@@ -59,7 +64,8 @@ public class MyAudioPlayer{
 	
 	public boolean stopAudio() {
 		
-		return false;
+		audioClip.stop();
+		return true;
 	}
 	
 	public boolean isPlaying() {
