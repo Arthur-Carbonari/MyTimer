@@ -46,14 +46,16 @@ class MyAudioPlayerTest {
 	void testIsPlaying() {
 		testAudioPlayer.loadAudioFile(validFilePath);
 		
-		boolean isPlaying = testAudioPlayer.playAudio();
+		assertTrue(testAudioPlayer.playAudio());
+		boolean isPlaying = testAudioPlayer.isPlaying();
 		
 		assertTrue(isPlaying);
 	}
 	
 	@Test
 	void testIsPlaying2() {
-		fail("Not yet implemented");
+		testAudioPlayer.loadAudioFile(validFilePath);
+		
 	}
 
 }
