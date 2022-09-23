@@ -12,19 +12,19 @@ public class ArgsParser {
 		return true;
 	}
 
-	public static int[] parseArgsToIntArray(String[] args) {
+	public static String[] parseArgs(String[] args) {
 		
 		String timeString = args[0];
 		
-		int[] intArray = {0 , 0};
+		String[] parsedArray = {"0" , "0"};
 		
 		if(timeString.matches("^[,.:]?\\d{1,3}$")) {
 			
-			timeString = timeString.replaceAll("[,.:]", "");
+			String minutes = timeString.replaceAll("[,.:]", "");
 			
-			intArray[1] = Integer.parseInt(timeString);
+			parsedArray[1] = minutes;
 			
-			return intArray;
+			return parsedArray;
 		}
 		
 		if(timeString.matches("^\\d{1,3}[:.,]\\d{0,3}$")) {
@@ -33,9 +33,10 @@ public class ArgsParser {
 						
 			if(splitTimeString[1] == "") splitTimeString[1] = "0";
 			
-			intArray[0] = Integer.parseInt(splitTimeString[0]);
-			intArray[1] = Integer.parseInt(splitTimeString[1]);
-			return intArray;
+			parsedArray[0] = splitTimeString[0];
+			parsedArray[1] = splitTimeString[1];
+
+			return parsedArray;
 		}
 		
 		
