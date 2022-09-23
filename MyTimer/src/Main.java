@@ -1,5 +1,4 @@
-import java.util.Scanner;
-import java.util.TimerTask;
+import java.io.IOException;
 
 public class Main {
 
@@ -12,35 +11,20 @@ public class Main {
 			return;
 		}
 		
-		int[] timeIntArray = ArgsParser.parseArgsToIntArray(args);
-
-		System.out.println("Timer set to T - " + timeIntArray[0] + ":" + timeIntArray[1]);
-
-		MyTimer myTimer = new MyTimer(timeIntArray[0], timeIntArray[1]);
-
+		String[] parsedArgs = ArgsParser.parseArgs(args);
 		
-		String pathTofile = Main.class.getResource("resources/alarm.wav").getPath();
+		System.out.println("Timer set to T - " + parsedArgs[0] + ":" + parsedArgs[1]);
 		
+		String myTimerAbsolutePath = Main.class.getResource("MyTimer.class").getPath().replaceFirst("MyTimer.class", "");
 		
-		TimerTask myTimerTask = new TimerTask() {
-			
-			MyAudioPlayer myAudioPlayer = new MyAudioPlayer(pathTofile);
-			Scanner in = new Scanner(System.in);
-			
-			@Override
-			public void run() {
-				
-				myAudioPlayer.playAudio();
-				System.out.println("Press enter to stop the alarm.");
-				in.nextLine();
-				myAudioPlayer.stopAudio();
-				myAudioPlayer.closeStreams();
-				in.close();
-				System.exit(0);
-			}
-		};
+		String command = CommandBuilder.getRunJavaClassCommand(myTimerAbsolutePath, "MyTimer", parsedArgs);
 		
-		myTimer.startTimer(myTimerTask);
+		try {
+			Runtime.getRuntime().exec(command);
+		} catch (IOException e) {
+			System.out.println("Error while trying to run MyTimer command.");
+			e.printStackTrace();
+		}
 		
 	}
 
