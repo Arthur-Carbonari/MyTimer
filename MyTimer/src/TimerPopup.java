@@ -1,4 +1,6 @@
+import java.awt.GraphicsEnvironment;
 import java.awt.Point;
+import java.awt.Rectangle;
 
 
 
@@ -12,8 +14,13 @@ public class TimerPopup {
 	}
 	
 	private static Point bottomRightPoint() {
-
-		return null;
+		Rectangle rec = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().getBounds();
+		
+		int x = (int) rec.getMaxX();
+		int y = (int) rec.getMaxY();
+		
+		return new Point(x, y);
+		
 	}
 
 }
