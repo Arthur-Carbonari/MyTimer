@@ -6,6 +6,16 @@ public class MyTimer {
 	
 	private long timeInMilliseconds;
 	private Timer timer = new Timer();
+	
+	public MyTimer(String hoursString, String minutesString) {
+		
+		int hours = Integer.parseInt(hoursString);
+		int minutes = Integer.parseInt(minutesString);
+		
+		minutes += hours * 60;
+		
+		timeInMilliseconds = minutes * 60_000;
+	}
 
 	public MyTimer(int hours, int minutes) {
 		
