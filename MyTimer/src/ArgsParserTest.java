@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class ArgsParserTest {
 	
 	static private String[][] mockValidArgsArray = {{"1.1"}, {".1"}, {"2,3"}, {"03:12"}, {"10"}, {"5."} };
-	static private int[][] parsedExpectedArgsArray = {  {1, 1} , {0 , 1}, {2 , 3} , {3 , 12}, {0 , 10} , {5 , 0}  };
+	static private String[][] parsedExpectedArgsArray = {  {"1", "1"} , {"0" , "1"}, {"2" , "3"} , {"03" , "12"}, {"0" , "10"} , {"5" , "0"}  };
 	static private String[][] mockInvalidArgsArray = {{"1 1"}, {"123123123121"}, {"12>21"}, {"01;12"}, {"12-21"}, {"1*22"}, {}, {"12", "23"} };
 	
 	@Test
@@ -47,24 +47,24 @@ class ArgsParserTest {
 	}
 
 	@Test
-	void testParseArgsToIntArray() {
-		int[] expectedOutput = {5 , 10};
+	void testParseArgs() {
+		String[] expectedOutput = {"5" , "10"};
 		
-		int[] actualOutput = ArgsParser.parseArgsToIntArray(new String[] {"5.10"});
+		String[] actualOutput = ArgsParser.parseArgs(new String[] {"5.10"});
 		
 		assertArrayEquals(expectedOutput, actualOutput);
 	}
 	
 	@Test
-	void testParseArgsToIntArray2() {
+	void testParseArgs2() {
 		
-		ArrayList<int[]> actualOutputList = new ArrayList<int[]>();
+		ArrayList<String[]> actualOutputList = new ArrayList<String[]>();
 		
 		for (String[] validArgs : mockValidArgsArray) {
-			actualOutputList.add(ArgsParser.parseArgsToIntArray(validArgs));
+			actualOutputList.add(ArgsParser.parseArgs(validArgs));
 		}
 		
-		int[][] actualOutputArray = new int[0][0];
+		String[][] actualOutputArray = new String[0][0];
 		
 		actualOutputArray = actualOutputList.toArray(actualOutputArray);
 		
