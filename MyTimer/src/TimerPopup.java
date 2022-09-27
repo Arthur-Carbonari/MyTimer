@@ -16,6 +16,7 @@ public class TimerPopup {
 		JFrame frame = new JFrame();
 		frame.setLocation(bottomRightPoint());
 		frame.setVisible(true);
+		frame.setAlwaysOnTop(true);
 		
 		JOptionPane.showMessageDialog(frame, message);
 		
